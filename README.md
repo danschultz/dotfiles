@@ -10,7 +10,7 @@ My personalized scripts and aliases.
 
 ## TODOs
 
-  - [ ] Add a Brew file to install commonly used libraries, and libraries used by these scripts
+  - [x] Add a Brew file to install commonly used libraries, and libraries used by these scripts
   - [ ] Move aliases that are in my `.bash_profile` to this repo
   - [ ] Move .gitconfig to this repo
   - [ ] Add an installer script
