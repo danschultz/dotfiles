@@ -1,1 +1,0 @@
-alias rasterize-html="phantomjs ${DOTFILES}/scripts/rasterize-html.js"

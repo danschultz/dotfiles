@@ -2,4 +2,4 @@
 #
 
 # Sub-aliases
-source "${DOTFILES}/scripts/aliases"
+source "${DOTFILES}/bin/aliases"
