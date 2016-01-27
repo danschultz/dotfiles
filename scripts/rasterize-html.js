@@ -1,4 +1,5 @@
 "use strict";
+
 var page = require('webpage').create(),
     system = require('system'),
     address, output, size;
@@ -20,14 +21,14 @@ if (system.args.length < 3 || system.args.length > 5) {
     } else if (system.args.length > 3 && system.args[3].substr(-2) === "px") {
         size = system.args[3].split('*');
         if (size.length === 2) {
-            pageWidth = parseInt(size[0], 10);
-            pageHeight = parseInt(size[1], 10);
+            var pageWidth = parseInt(size[0], 10);
+            var pageHeight = parseInt(size[1], 10);
             page.viewportSize = { width: pageWidth, height: pageHeight };
             page.clipRect = { top: 0, left: 0, width: pageWidth, height: pageHeight };
         } else {
             console.log("size:", system.args[3]);
-            pageWidth = parseInt(system.args[3], 10);
-            pageHeight = parseInt(pageWidth * 3/4, 10); // it's as good an assumption as any
+            var pageWidth = parseInt(system.args[3], 10);
+            var pageHeight = parseInt(pageWidth * 3/4, 10); // it's as good an assumption as any
             console.log ("pageHeight:",pageHeight);
             page.viewportSize = { width: pageWidth, height: pageHeight };
         }
@@ -35,9 +36,15 @@ if (system.args.length < 3 || system.args.length > 5) {
     if (system.args.length > 4) {
         page.zoomFactor = system.args[4];
     }
+
+    page.onResourceError = function(error) {
+      var url = error.url.length > 40 ? error.url.substr(0, 40) + '...' : error.url.substr(0, 40);
+      console.log('Unable to load resource (URL: ' + url + ')');
+    };
+
     page.open(address, function (status) {
         if (status !== 'success') {
-            console.log('Unable to load the address!');
+            console.error('Unable to load the address!');
             phantom.exit(1);
         } else {
             window.setTimeout(function () {
