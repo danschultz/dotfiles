@@ -1,6 +1,6 @@
 # Dotfiles
 
-My personalized scripts and aliases.
+Personalized scripts and aliases.
 
 ## Installation
 
@@ -8,12 +8,12 @@ My personalized scripts and aliases.
 
 ## Usage
 
-  1. `script/bootstrap` is the setup script
-  2. `script/install` will invoke any `package/install.sh` script
-  3. Any script in `bin` will available on your path
-  4. Any `package/path.sh` is sourced and should setup your path
-  5. Any `package/completion.sh` is sourced next and should setup autocompletions`
-  6. Any `package/*.symlink` will get symlinked to `~/`
+  1. `script/bootstrap` runs `brew bundle` and symlinks any files to your home directory
+  2. `script/install` runs any `package/install.sh` scripts
+  3. Any scripts in `bin` will be available on your path
+  4. Any `package/path.sh` files are loaded first and is intended to modify your path
+  5. Any `package/completion.sh` is sourced second and is intended to setup autocompletions
+  6. Any `package/*.symlink` will get symlinked to your home directory
 
 ## TODOs
 
