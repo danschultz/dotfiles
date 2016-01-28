@@ -1,5 +1,0 @@
-# Some scripts may depend on a DOTFILES env variable
-#
-
-# Sub-aliases
-source "${DOTFILES}/bin/aliases"
