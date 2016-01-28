@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+remote = ARGV[0] || "origin"
+matcher = /#{remote}\s*git@github\.com:(.*)\.git/
+url_path = matcher.match(`git remote -v`)[1]
+`open http://www.github.com/#{url_path}`

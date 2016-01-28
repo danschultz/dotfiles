@@ -1,0 +1,8 @@
+#!/bin/bash
+
+command=$1
+
+if [ "$command" == "prune" ]
+then
+	git branch --merged master | grep -v 'master$' | xargs git branch -d
+fi
