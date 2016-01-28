@@ -1,23 +1,22 @@
 export DOTFILES=$HOME/dotfiles
 
 # Source path files
-find $DOTFILES -name path.sh | while read filename
+for file in $(find $DOTFILES -name path.sh)
 do
-  source "$filename"
+  source $file
 done
 
 # Source completion files
-find $DOTFILES -name completion.sh | while read filename
+for file in $(find $DOTFILES -name completion.sh)
 do
-  source "$filename"
+  source $file
 done
 
 # Source all other .sh files
 
-find $DOTFILES -name *.sh -not -name path.sh -not -name completion.sh -not -name install.sh |
-while read filename
+for file in $(find $DOTFILES -name *.sh -not -name path.sh -not -name completion.sh -not -name install.sh)
 do
-  echo "$filename"
+  source $file
 done
 
 # *** manually source old .bash_profile contents for now
