@@ -2,6 +2,10 @@
 
 My personalized scripts and aliases.
 
+## Installation
+
+  * `git clone git@github.com:danschultz/dotfiles.git ~/.dotfiles`
+
 ## Usage
 
   1. `script/bootstrap` is the setup script
