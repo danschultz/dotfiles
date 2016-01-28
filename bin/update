@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# Updates brew, runs dot installs, etc.
+
+echo "› brew update"
+brew update
+
+$DOTFILES/script/install
