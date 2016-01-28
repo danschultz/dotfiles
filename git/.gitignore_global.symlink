@@ -1,0 +1,15 @@
+# OS generates files
+.DS_Store
+
+# Eclipse project files
+.project
+.settings
+
+# IntelliJ project files
+*.iml
+
+# Sublime project files
+*.sublime-project
+*.sublime-workspace
+.tags
+.tags_search_paths
