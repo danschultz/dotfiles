@@ -18,6 +18,3 @@ for file in $(find $DOTFILES -name *.sh -not -name path.sh -not -name completion
 do
   source $file
 done
-
-# *** manually source old .bash_profile contents for now
-source $HOME/.bash_profile.old
