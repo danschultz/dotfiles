@@ -10,6 +10,6 @@ echo "› brew bundle"
 brew bundle
 
 find . -name install.sh | while read installer ; do
-  echo "› installing $(dirname ${installer})"
+  echo "› running installer in $(dirname ${installer})"
   sh -c "${installer}" ;
 done
