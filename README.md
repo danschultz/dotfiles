@@ -2,12 +2,6 @@
 
 My personalized scripts and aliases.
 
-## Installation
-
-  1. Clone: `git clone https://github.com/danschultz/dotfiles.git`
-  2. Add an environment variable for DOTFILES that points to the cloned project.
-  3. source `${DOTFILES}/aliases`
-
 ## Usage
 
   1. `script/bootstrap` is the setup script
