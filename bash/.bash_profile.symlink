@@ -1,0 +1,16 @@
+export DOTFILES=$HOME/dotfiles
+
+# Source path files
+find $DOTFILES -name path.sh | while read filename
+do
+  source "$filename"
+done
+
+# Source completion files
+find $DOTFILES -name completion.sh | while read filename
+do
+  source "$filename"
+done
+
+# *** manually source old .bash_profile contents for now
+source $HOME/.bash_profile.old
