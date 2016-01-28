@@ -17,6 +17,8 @@ brew 'wget'
 
 cask 'atom'
 cask 'firefox'
+cask 'flash-player-debugger'
+cask 'flash-player'
 cask 'google-chrome'
 cask 'hipchat'
 cask 'intellij-idea'
