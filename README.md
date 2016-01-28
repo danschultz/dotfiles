@@ -19,5 +19,6 @@ Personalized scripts and aliases.
 
   - [x] Add a Brew file to install commonly used libraries, and libraries used by these scripts
   - [x] Move aliases that are in my `.bash_profile` to this repo
-  - [ ] Move .gitconfig to this repo
+  - [x] Move .gitignore_global to this repo
   - [x] Add an installer script
+  - [ ] Add atom config
