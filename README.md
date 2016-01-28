@@ -11,9 +11,11 @@ My personalized scripts and aliases.
 ## Usage
 
   1. `script/bootstrap` is the setup script
-  2. Anything in `/bin` will get added to your path
-  3. Any `/package/install` will be invoked by `/script/install`
-  4. Any `/package/*.symlink` will get symlinked from `~/`
+  2. `script/install` will invoke any `package/install.sh` script
+  3. Any script in `bin` will available on your path
+  4. Any `package/path.sh` is sourced and should setup your path
+  5. Any `package/completion.sh` is sourced next and should setup autocompletions`
+  6. Any `package/*.symlink` will get symlinked to `~/`
 
 ## TODOs
 
