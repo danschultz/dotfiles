@@ -1,0 +1,1 @@
+brew linkapps dart

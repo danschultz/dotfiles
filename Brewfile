@@ -1,9 +1,11 @@
 cask_args appdir: '/Applications'
 
 tap 'caskroom/cask'
+tap 'dart-lang/dart'
 tap 'homebrew/bundle'
 tap 'homebrew/versions'
 
+brew 'dart', args: ['with-content-shell', 'with-dartium']
 brew 'httpie'
 brew 'hub'
 brew 'imagemagick'
