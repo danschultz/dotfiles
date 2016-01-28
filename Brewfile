@@ -2,10 +2,12 @@ cask_args appdir: '/Applications'
 
 tap 'caskroom/cask'
 tap 'homebrew/bundle'
+tap 'homebrew/versions'
 
 brew 'httpie'
 brew 'hub'
 brew 'imagemagick'
+brew 'maven2'
 brew 'mysql'
 brew 'node'
 brew 'openssl'
