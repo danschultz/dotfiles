@@ -5,6 +5,7 @@ tap 'dart-lang/dart'
 tap 'homebrew/bundle'
 tap 'homebrew/versions'
 
+brew 'chromedriver'
 brew 'dart', args: ['with-content-shell', 'with-dartium']
 brew 'httpie'
 brew 'hub'
