@@ -1,0 +1,97 @@
+#!/usr/bin/env ruby
+USAGE = """
+Manages dotfiles Brewfile.
+
+Usage: brew dot <command> package [arguments]
+
+Available commands:
+add-package       Adds a brew package
+remove-package    Removes a brew package
+add-cask          Adds a cask package
+remove-cask       Removes a cask package
+"""
+
+BREWFILE = "#{ENV['DOTFILES']}/Brewfile"
+
+def add_package(package, args)
+  brewfile = read_brewfile
+  brewfile["brew"] = remove_operation(brewfile["brew"], package)
+  brewfile["brew"] << add_operation(package, args)
+  write_brewfile brewfile
+end
+
+def remove_package(package)
+  brewfile = read_brewfile
+  brewfile["brew"] = remove_operation(brewfile["brew"], package)
+  write_brewfile brewfile
+end
+
+def add_cask(cask, args)
+  brewfile = read_brewfile
+  brewfile["cask"] = remove_operation(brewfile["cask"], cask)
+  brewfile["cask"] << add_operation(cask, args)
+  write_brewfile brewfile
+end
+
+def remove_cask(cask)
+  brewfile = read_brewfile
+  brewfile["cask"] = remove_operation(brewfile["cask"], cask)
+  write_brewfile brewfile
+end
+
+def add_operation(package, args)
+  operation = "'#{package}'"
+  unless args == nil || args.empty?
+    operation << ", args: [#{args.map { |arg| "'#{arg.gsub(/^--/, '')}'"}.join(", ")}]"
+  end
+  operation
+end
+
+def remove_operation(operations, operation)
+  operations.reject { |op| op.start_with? "'#{operation}'" }
+end
+
+def read_brewfile
+  commands = {}
+  File.foreach(BREWFILE) do |line|
+    parts = line.split(' ')
+    command = parts[0]
+
+    unless command.nil?
+      commands[command] = [] unless commands.has_key? command
+      commands[parts[0]] << parts.drop(1).join(' ')
+    end
+  end
+  commands
+end
+
+def write_brewfile(contents_hash)
+  build_operations = ->(key) {
+    contents_hash[key].map { |value| "#{key} #{value}" }.uniq.sort
+  }
+
+  # Non `brew` or `cask` commands are written first, in alphabetical order
+  header_keys = contents_hash.keys.reject { |k| k == 'brew' || k == 'cask' }.sort
+  header = header_keys.map { |key| build_operations.(key) }
+  tail = ['brew', 'cask'].map { |key| build_operations.(key) }
+  contents = (header | tail).map { |content| content.join("\n") }.join("\n\n")
+
+  File.write(BREWFILE, contents)
+end
+
+command = ARGV[0]
+package = ARGV[1]
+args = ARGV.drop(2)
+
+case command
+  when "add-package"
+    add_package(package, args)
+  when "remove-package"
+    remove_package(package)
+  when "add-cask"
+    add_cask(package, args)
+  when "remove-cask"
+    remove_cask(package)
+  else
+    puts USAGE
+end
