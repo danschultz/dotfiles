@@ -8,6 +8,7 @@ tap 'homebrew/versions'
 brew 'awscli'
 brew 'chromedriver'
 brew 'dart', args: ['with-content-shell', 'with-dartium']
+brew 'gawk'
 brew 'httpie'
 brew 'hub'
 brew 'imagemagick'
