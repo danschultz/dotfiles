@@ -1,0 +1,32 @@
+#!/bin/sh
+
+read -p "Token description: " NOTE
+read -p "Github username: " USERNAME
+read -s -p "Github password: " PASSWORD
+
+parse_token () {
+  echo "$(echo $1 | jq '.token' | sed 's/"//g')"
+}
+
+RESPONSE=`curl -s -u $USERNAME:$PASSWORD -X POST \
+  -d "{\"scopes\": \"repo\", \"note\": \"$NOTE\"}" \
+  -D - https://api.github.com/authorizations`
+UNAUTH_STATUS=`echo $RESPONSE | grep 'Status: 4'`
+TWO_FA_REQ=`echo $RESPONSE | grep 'X-GitHub-OTP: required'`
+
+if test -n "$UNAUTH_STATUS" -a -n "$TWO_FA_REQ"
+then
+  read -p "Enter 2FA: " CODE
+
+  RESPONSE=`curl -s -u $USERNAME:$PASSWORD -H "X-GitHub-OTP: $CODE" -X POST \
+    -d "{\"scopes\": \"repo\", \"note\": \"$NOTE\"}" \
+    https://api.github.com/authorizations`
+  parse_token "$RESPONSE"
+elif test -z "$UNAUTH_STATUS"
+then
+  parse_token "$RESPONSE"
+else
+  echo $RESPONSE
+  echo "There was a problem generating an auth token."
+  exit 1
+fi

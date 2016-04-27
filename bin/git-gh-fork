@@ -1,0 +1,59 @@
+#!/bin/sh
+
+REPO=$1
+USER=`git config --global --get user.email`
+TOKEN=`git gh-token`
+
+get () {
+  curl --silent -u $USER:$TOKEN $1
+}
+
+post () {
+  if test -z "$2"
+  then
+    curl --silent -u $USER:$TOKEN -X POST $1
+  else
+    curl --silent -u $USER:$TOKEN -X POST -d $2 $1
+  fi
+}
+
+if test -z "$REPO"
+then
+  read -p "Enter repo to fork (format: org/repo): " REPO
+fi
+
+if test -z "$USER"
+then
+  echo "User email isn't set in git-config."
+fi
+
+if test -z "$TOKEN"
+then
+  echo "OAuth token isn't set in git-config. Run \`gh-auth\`."
+  exit 1
+fi
+
+echo "› Forking $REPO"
+RESPONSE=$(post "https://api.github.com/repos/$REPO/forks")
+CLONE_URL=`echo $RESPONSE | jq ".ssh_url" | sed 's/"//g'`
+CLONE_DIR=`echo $REPO | cut -d "/" -f2`
+
+if test -z "$CLONE_URL"
+then
+  echo "There was a problem cloning the repo."
+  echo $RESPONSE
+  exit 1
+fi
+
+echo "› Cloning $CLONE_URL"
+# Give a bit of time for Github to create the fork
+for i in {1..10}
+do
+  sleep 3
+  git clone $CLONE_URL $CLONE_DIR && break
+  echo "› Clone failed, retrying in 3 seconds ..."
+done
+
+echo "› Setting up fork"
+cd $CLONE_DIR
+git setup-fork "git@github.com:$REPO.git"
