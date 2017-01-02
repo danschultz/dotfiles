@@ -22,6 +22,7 @@ brew 'pass'
 brew 'phantomjs'
 brew 'pyenv'
 brew 'rbenv'
+brew 'ruby'
 brew 'ruby-build'
 brew 'wget'
 
