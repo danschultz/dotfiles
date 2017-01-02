@@ -1,0 +1,42 @@
+[user]
+	name = Dan Schultz
+	email = schultz.t.dan@gmail.com
+
+[credential]
+	helper = osxkeychain
+
+[color]
+	ui = true
+
+[core]
+	excludesfile = /Users/dan/.gitignore_global
+	editor = "vim -c 'set colorcolumn=80 tw=80'"
+
+[merge]
+	tool = opendiff
+
+[mergetool "p4merge_"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "$PWD/$BASE" "$PWD/$LOCAL" "$PWD/$REMOTE" "$PWD/$MERGED"
+	keepTemporaries = false
+	trustExitCode = false
+	keepBackup = false
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[push]
+	default = simple
+[github]
+	site = https://github.com
+	endpoint = https://api.github.com
+	oauth-token = 8faf6347b95cfe85fc9d47075833a33a57fb3e48
+[reflow]
+	git-server = GitHub
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
