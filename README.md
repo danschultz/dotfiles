@@ -21,4 +21,5 @@ Personalized scripts and aliases.
   - [x] Move aliases that are in my `.bash_profile` to this repo
   - [x] Move .gitignore_global to this repo
   - [x] Add an installer script
+  - [ ] Add global git config
   - [ ] Add atom config
