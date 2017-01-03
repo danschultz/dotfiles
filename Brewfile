@@ -7,6 +7,7 @@ tap 'homebrew/bundle'
 tap 'homebrew/versions'
 
 brew 'awscli'
+brew 'bash-completion'
 brew 'chromedriver'
 brew 'dart', args: ['with-content-shell', 'with-dartium']
 brew 'gawk'

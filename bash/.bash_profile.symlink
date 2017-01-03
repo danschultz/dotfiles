@@ -12,6 +12,11 @@ do
   source $file
 done
 
+# Source completion files for packages installed through Homebrew
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
 # Source all other .sh files
 
 for file in $(find $DOTFILES -name *.sh -not -name path.sh -not -name completion.sh -not -name install.sh)
