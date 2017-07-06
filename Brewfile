@@ -11,6 +11,7 @@ brew 'bash-completion'
 brew 'chromedriver'
 brew 'dart', args: ['with-content-shell', 'with-dartium']
 brew 'gawk'
+brew 'git'
 brew 'httpie'
 brew 'hub'
 brew 'imagemagick'
