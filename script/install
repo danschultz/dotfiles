@@ -7,7 +7,7 @@ set -e
 cd "$(dirname $0)"/..
 
 echo "› brew bundle"
-brew bundle
+brew bundle --no-upgrade || true
 
 find . -name install.sh | while read installer ; do
   echo "› running installer in $(dirname ${installer})"
