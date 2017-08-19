@@ -26,6 +26,7 @@ then
 fi
 
 git config remote.pushdefault origin
+git config push.default current
 git remote add $UPSTREAM_NAME $UPSTREAM_REPO
 git fetch $UPSTREAM_NAME
 git branch --set-upstream-to=$UPSTREAM_NAME/master
