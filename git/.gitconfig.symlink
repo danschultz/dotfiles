@@ -23,7 +23,7 @@
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
@@ -33,7 +33,6 @@
 [github]
 	site = https://github.com
 	endpoint = https://api.github.com
-	oauth-token = 8faf6347b95cfe85fc9d47075833a33a57fb3e48
 [reflow]
 	git-server = GitHub
 [filter "lfs"]
