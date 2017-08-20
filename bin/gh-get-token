@@ -1,0 +1,11 @@
+#!/bin/sh
+
+TOKEN_FILE="$HOME/.ghtoken"
+
+if test -f $TOKEN_FILE
+then
+  echo `cat $HOME/.ghtoken`
+else
+  echo 'Token file is missing'
+  exit 1
+fi

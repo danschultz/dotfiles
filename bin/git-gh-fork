@@ -2,7 +2,7 @@
 
 REPO=$1
 USER=`git config --global --get user.email`
-TOKEN=`git gh-token`
+TOKEN=`gh-get-token`
 
 get () {
   curl --silent -u $USER:$TOKEN $1

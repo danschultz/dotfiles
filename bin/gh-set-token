@@ -1,0 +1,11 @@
+#!/bin/sh
+
+TOKEN="$1"
+
+if test ! -z $TOKEN && test -n $TOKEN
+then
+  echo $TOKEN > ~/.ghtoken
+else
+  echo "Token is empty"
+  exit 1
+fi
