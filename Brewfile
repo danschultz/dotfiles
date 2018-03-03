@@ -27,6 +27,7 @@ brew 'ruby-build'
 brew 'tmux'
 brew 'wget'
 
+cask 'iterm2'
 cask 'java'
 cask 'atom'
 cask 'dropbox'
