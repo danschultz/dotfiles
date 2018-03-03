@@ -24,6 +24,12 @@ do
   source $file
 done
 
+# Source secrets file for anything that should not be in version control
+if test -x ~/.secrets
+then
+  source ~/.secrets
+fi
+
 # Setup NVM
 
 export NVM_DIR="$HOME/.nvm"
