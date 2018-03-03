@@ -2,14 +2,12 @@ cask_args appdir: '/Applications'
 
 tap 'caskroom/cask'
 tap 'caskroom/versions'
-tap 'dart-lang/dart'
 tap 'homebrew/bundle'
 tap 'homebrew/versions'
 
 brew 'awscli'
 brew 'bash-completion'
 brew 'chromedriver'
-brew 'dart', args: ['with-content-shell', 'with-dartium']
 brew 'gawk'
 brew 'git'
 brew 'httpie'
