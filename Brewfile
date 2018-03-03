@@ -24,6 +24,7 @@ brew 'pyenv'
 brew 'rbenv'
 brew 'ruby'
 brew 'ruby-build'
+brew 'tmux'
 brew 'wget'
 
 cask 'java'
