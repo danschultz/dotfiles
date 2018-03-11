@@ -27,6 +27,7 @@ brew 'ruby'
 brew 'ruby-build'
 brew 'tmux'
 brew 'wget'
+brew 'yarn', args: ['without-node']
 
 cask 'iterm2'
 cask 'java'
