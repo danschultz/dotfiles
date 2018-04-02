@@ -1,4 +1,4 @@
-if test ! -d $HOME/.go
+if test ! -d $HOME/go
 then
-  mkdir -p $HOME/.go
+  mkdir -p $HOME/go
 fi

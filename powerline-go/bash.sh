@@ -1,5 +1,5 @@
 function _update_ps1() {
-    PS1="$(~/.go/bin/powerline-go \
+    PS1="$(~/go/bin/powerline-go \
         -modules "venv,cwd,perms,gitlite,jobs,exit,docker" \
         -cwd-mode "fancy" \
         -cwd-max-depth 3 \
