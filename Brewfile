@@ -8,7 +8,6 @@ tap 'homebrew/versions'
 
 brew 'awscli'
 brew 'bash-completion'
-brew 'chromedriver'
 brew 'gawk'
 brew 'git'
 brew 'go'
