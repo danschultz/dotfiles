@@ -1,1 +1,1 @@
-alias simple="${SPEEDRACER_HOME}/parent/simple"
+alias simple="python3 ${SPEEDRACER_HOME}/parent/simple"
