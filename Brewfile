@@ -26,6 +26,7 @@ brew 'rbenv'
 brew 'ruby'
 brew 'ruby-build'
 brew 'tmux'
+brew 'watchman'
 brew 'wget'
 brew 'yarn', args: ['without-node']
 
@@ -41,6 +42,7 @@ cask 'spotify'
 cask 'virtualbox'
 cask 'visual-studio-code'
 
+cask 'font-fira-code'
 cask 'font-anonymice-powerline'
 cask 'font-consolas-for-powerline'
 cask 'font-dejavu-sans-mono-for-powerline'
