@@ -1,5 +1,0 @@
-#!/bin/sh
-
-pushd $SPEEDRACER_HOME/parent > /dev/null
-./speedracer.sh "$@"
-popd > /dev/null
