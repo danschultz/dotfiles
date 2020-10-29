@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# Removes local branches that have been merged to master
+
+git checkout master && git remote prune origin | egrep -v "(^\*|master|main)" | sed "s/^.*origin\///" | xargs -L1 -J % git branch -D %
