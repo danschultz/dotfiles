@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+const len = parseInt(process.argv[2]) || 32;
+
+require('crypto').randomBytes(len, function (ex, buf) {
+  console.log(buf.toString('hex'));
+});

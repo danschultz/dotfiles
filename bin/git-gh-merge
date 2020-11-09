@@ -1,0 +1,14 @@
+#!/bin/sh
+
+REPO=$1
+PR_ID=$2
+USER=`git config --global --get user.email`
+TOKEN=`gh-get-token`
+
+get () {
+  curl --silent -u $USER:$TOKEN $1
+}
+
+DESCRIPTION=$(get "https://api.github.com/repos/$REPO/pulls/$PR_ID")
+
+echo $DESCRIPTION
