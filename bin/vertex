@@ -1,5 +1,0 @@
-#!/bin/sh
-
-pushd $SPEEDRACER_HOME/vertex-compose > /dev/null
-docker-compose "$@"
-popd > /dev/null
