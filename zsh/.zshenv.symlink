@@ -1,0 +1,15 @@
+export DOTFILES=$HOME/.dotfiles
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Source path files
+for file in $(find $DOTFILES -name path.sh)
+do
+  source $file
+done
+
+# Source secrets file for anything that should not be in version control
+if test -x ~/.secrets
+then
+  source ~/.secrets
+fi
