@@ -1,2 +1,1 @@
-export SPEEDRACER_HOME=$HOME/Development/Vertex/
-export VERTEX_REPO=$SPEEDRACER_HOME
+source ~/.aws/credential_exports.sh
