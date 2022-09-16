@@ -12,6 +12,10 @@
 	excludesfile = /Users/dan/.gitignore_global
 	editor = "vim -c 'set colorcolumn=80 tw=80'"
 
+[branch]
+	autoSetupMerge = inherit
+	autoSetupRebase = remote
+
 [merge]
 	tool = opendiff
 
@@ -28,13 +32,17 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+
 [push]
 	default = simple
+
 [github]
 	site = https://github.com
 	endpoint = https://api.github.com
+
 [reflow]
 	git-server = GitHub
+
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
