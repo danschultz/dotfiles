@@ -11,3 +11,6 @@ source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+# Ensure Homebrew takes precedence over System binaries.
+export PATH="/opt/homebrew/bin:$PATH"
