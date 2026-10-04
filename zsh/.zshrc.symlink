@@ -6,8 +6,3 @@ done
 
 # Move to prezto/bash.sh?
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-
-# Setup Python
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi

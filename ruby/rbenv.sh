@@ -1,4 +1,5 @@
 if which rbenv > /dev/null
 then
-  eval "$(rbenv init -)"; 
+  # disable for now. this isn't being used.
+  # eval "$(rbenv init -)";
 fi
