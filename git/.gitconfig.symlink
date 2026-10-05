@@ -2,6 +2,9 @@
 	name = Dan Schultz
 	email = schultz.t.dan@gmail.com
 
+[includeIf "gitdir:~/Development/"]
+	path = ~/.gitconfig-vertex
+
 [credential]
 	helper = osxkeychain
 
