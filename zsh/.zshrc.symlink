@@ -7,6 +7,10 @@ done
 # Move to prezto/bash.sh?
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
+# Prezto's directory module unsets CLOBBER, which also stops >> from creating
+# missing files (breaks cmux per-terminal history). Keep > protection only.
+setopt APPEND_CREATE
+
 # >>> otty shell integration >>>
 # Added by Otty — toggle in Settings > Shell > Shell Integration.
 # Inert unless launched by Otty (it sets $OTTY_SHELL_INTEGRATION).

@@ -1,0 +1,21 @@
+{
+  "lastChangelogVersion": "1.1.0",
+  "packages": [
+    "npm:pi-cursor-sdk",
+    "npm:@gotgenes/pi-permission-system",
+    "npm:pi-powerline-footer",
+    "npm:pi-terminal-mux"
+  ],
+  "defaultProvider": "cursor",
+  "defaultModel": "auto-smart",
+  "hideThinkingBlock": true,
+  "quietStartup": true,
+  "steeringMode": "all",
+  "followUpMode": "all",
+  "powerline": {
+    "welcome": false,
+    "placement": "above",
+    "preset": "minimal",
+    "completions": true
+  }
+}
